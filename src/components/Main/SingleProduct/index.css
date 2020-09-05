@@ -1,0 +1,29 @@
+.singleProduct {
+    display: flex;
+    flex: 1;
+    min-width: 300px;
+    width: 100%;
+    align-items: center;
+    margin: 2px;
+    padding: 20px;
+    border-radius: 10px;
+    border-top: 1px solid lightgrey;
+    background-color: white;
+}
+.singleProduct__left {
+    width: 40%;
+    padding: 20px;
+}
+.singleProduct__left > img{
+    width: 70%;
+    max-width: 100px;
+}
+.singleProduct__title > h2 {
+    color: #333;
+    font-weight: 600;
+    font-size: large;
+}
+.singleProduct__sendType > span {
+    font-size: smaller;
+    color: green;
+}
