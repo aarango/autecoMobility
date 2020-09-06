@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
 import Logo from '../../assests/img/auteco-mobility-logo.png';
-
 import { useStyles } from './Style';
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({ sendData }) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+
+  const sendSearch = (event, newValue) => {
+    console.log(event.target.value);
+
+    const dato = event.target.value;
+    sendData({ dato });
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -70,49 +71,25 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label='show 4 new mails' color='inherit'>
-          <Badge badgeContent={4} color='secondary'>
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Mensajes</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label='show 11 new notifications' color='inherit'>
-          <Badge badgeContent={11} color='secondary'>
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notificaciones</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label='account of current user'
-          aria-controls='primary-search-account-menu'
-          aria-haspopup='true'
-          color='inherit'
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Perfil</p>
-      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Mi cuenta</MenuItem>
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar style={{ background: '#ffffff' }} position='static'>
+      <AppBar position='static'>
         <Toolbar>
-          <Badge>
-            <img src={Logo} alt='logo' height='70rem' width='117rem' />
+          <Badge className={classes.logo}>
+            <img alt='logo' height='70px' max-width='100%' src={Logo} />
           </Badge>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder='Busqueda'
+              placeholder='Busque sus articulos...'
+              onChange={sendSearch}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -120,9 +97,6 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <Typography className={classes.title} variant='h6' noWrap>
-            Nuevo sitio web
-          </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton
@@ -131,8 +105,9 @@ export default function PrimarySearchAppBar() {
               aria-controls={menuId}
               aria-haspopup='true'
               onClick={handleProfileMenuOpen}
+              color='inherit'
             >
-              <AccountCircle style={{ fontSize: 40 }} />
+              <AccountCircle style={{ fontSize: '3rem' }} />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
@@ -141,7 +116,7 @@ export default function PrimarySearchAppBar() {
               aria-controls={mobileMenuId}
               aria-haspopup='true'
               onClick={handleMobileMenuOpen}
-              color='black'
+              color='inherit'
             >
               <MoreIcon />
             </IconButton>

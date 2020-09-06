@@ -11,9 +11,24 @@
     background-color: white;
 }
 .singleProduct__left {
-    width: 40%;
-    padding: 20px;
+    box-sizing: content-box;
+    border-radius: 4px;
+    flex-shrink: 0;
+    font-size: 1px;
+    height: 160px;
+    margin: 0;
+    overflow: hidden;
+    padding: 10px 10px 10px 10px;
+    width: 160px;
 }
+
+.singleProduct_percent {
+    color: #00a650;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+}
+
 .singleProduct__left > img{
     width: 70%;
     max-width: 100px;
@@ -22,6 +37,20 @@
     color: #333;
     font-weight: 600;
     font-size: large;
+}
+.singleProduct__price__original > s {
+    align-items: center;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+.singleProduct__price > span {
+    color:#333;
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 6px;
+    line-height: 1;
 }
 .singleProduct__sendType > span {
     font-size: smaller;

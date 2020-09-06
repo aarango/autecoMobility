@@ -11,24 +11,41 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReelProduct() {
+export default function ReelProduct({ selecteDate }) {
   const classes = useStyles();
 
   const [products, setProducts] = useState([]);
+  console.log('Reell', selecteDate);
+
+  const API_URL = 'https://api.mercadolibre.com';
+  const search = selecteDate;
+  const API_LIMIT = '10';
+  const API_TOKEN = 'APP_USR-260721409686760-090603-6bc6f90c466847e92223b0e1e63a5627-137761565';
 
   useEffect(() => {
     async function getProducts() {
-      const res = await axios.get('https://api.mercadolibre.com/sites/MCO/search?q=llantas%20carros&offset=0&limit=1&access_token=APP_USR-260721409686760-090504-109fefed438d4a4466e1aac3224454f5-137761565');
+      const res = await axios.get(`${API_URL}/sites/MCO/search?q=${search}&offset=0&limit=${API_LIMIT}&access_token=${API_TOKEN}`);
       console.log(res.data.results);
       setProducts(res.data.results);
     }
     getProducts();
-  }, []);
+  }, [search]);
 
   return (
     <List className={classes.root}>
       {
-        products.map((product) => <Product title={product.title} image={product.thumbnail} />)
+        products.map((product) => (
+          <Product
+            title={product.title}
+            image={product.thumbnail}
+            price={product.price}
+            originalprice={product.original_price}
+            shipping={product.shipping}
+            installments={product.installments}
+            region={product.address}
+
+          />
+        ))
       }
     </List>
   );
