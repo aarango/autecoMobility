@@ -1,5 +1,5 @@
-  
-import React from 'react';
+
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import Product from '../SingleProduct';
@@ -7,13 +7,13 @@ import Product from '../SingleProduct';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: 560,
+    maxWidth: 760,
   },
 }));
 
 export default function ReelProduct({ products = [] }) {
   const classes = useStyles();
-
+  console.log(products);
   return (
     <List className={classes.root}>
       {

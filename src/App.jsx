@@ -3,9 +3,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 import Header from './components/Header/index';
-import MainContainer from './containers/MainContainer';
+import Home from './pages/Home';
+import ProductContainer from './containers/ProductContainer';
 
 function App() {
 
@@ -14,9 +16,15 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route exact path='/' component={() => <Redirect to='search/llantas para carros ' />} />
           <Route
             path='/search/:query?/:offset?'
-            component={MainContainer}
+            component={Home}
+          />
+          <Route
+            exact
+            path='/:id?'
+            component={ProductContainer}
           />
         </Switch>
       </Router>

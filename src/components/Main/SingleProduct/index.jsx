@@ -1,8 +1,11 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
+import { useHistory } from 'react-router-dom';
 import './index.css';
 
-export default function SingleProduct({ image, title, seller, price, originalprice, shipping, installments, region, id, sendID }) {
+export default function SingleProduct({ image, title, seller, price, originalprice, shipping, installments, region, id }) {
+
+  const idRoute = useHistory();
 
   // Función para dar formato número
   const currencyFormat = (num) => {
@@ -22,16 +25,14 @@ export default function SingleProduct({ image, title, seller, price, originalpri
   // Enviando ID Click
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(event.target.id);
-    const { id } = event.target.id;
-    sendID({ id });
-
+    console.log('id--1,', id);
+    idRoute.push(`/${id}`);
   };
 
   return (
     <ListItem className='singleProduct'>
       <div style={{ cursor: 'pointer' }} className='singleProduct__left'>
-        <img alt={title} src={image} />
+        <img alt={title} src={image} onClick={handleClick} />
       </div>
       <div className='singleProduct__information'>
         <div className='singleProduct__title' style={{ cursor: 'pointer' }}>
