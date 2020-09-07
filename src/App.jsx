@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
-import Header from './components/Header/Header';
-import Main from './components/Main/index';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Header from './components/Header/index';
+import MainContainer from './containers/MainContainer';
 
 function App() {
 
-  const [selecteDate, setSelectDate] = useState(new Date());
-  console.log('busqueda', selecteDate);
-
   return (
     <>
-      <Header sendData={(dato) => setSelectDate(dato.dato)} />
-      <Main selecteDate={selecteDate} />
+      <Router>
+        <Header />
+        <Switch>
+          <Route
+            path='/search/:query?/:offset?'
+            component={MainContainer}
+          />
+        </Switch>
+      </Router>
     </>
   );
 }
-
 export default App;

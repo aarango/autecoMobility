@@ -1,2 +1,11 @@
-const API_URL = 'https://api.mercadolibre.com/';
-const TOKEN = 'APP_USR-260721409686760-090504-109fefed438d4a4466e1aac3224454f5-137761565'
+
+const API = {
+
+ API_URL='https://api.mercadolibre.com',
+ QUERY = props,
+ API_LIMIT = props,
+ API_TOKEN = 'APP_USR-260721409686760-090603-6bc6f90c466847e92223b0e1e63a5627-137761565',
+
+  };
+  
+  export default API;

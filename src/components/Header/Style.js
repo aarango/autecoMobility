@@ -1,4 +1,4 @@
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { fade, makeStyles } from '@material-ui/core/styles';
 
 // eslint-disable-next-line import/prefer-default-export
 export const useStyles = makeStyles((theme) => ({
@@ -10,18 +10,22 @@ export const useStyles = makeStyles((theme) => ({
   },
   logo: {
     display: 'none',
+    backgroundColor: 'white',
     marginRight: theme.spacing(2),
-    padding: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+    },
+    '& > img': {
+      width: '100px',
     },
   },
   search: {
     position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    borderRadius: '999px',
+    padding: '5px',
+    backgroundColor: '#eff2f5',
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: '#ececec',
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -46,7 +50,7 @@ export const useStyles = makeStyles((theme) => ({
     color: '#000000',
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
+    padding: '10px',
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),

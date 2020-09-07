@@ -2,12 +2,14 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import './index.css';
 
-export default function SingleProduct({ image, title, seller, price, originalprice, shipping, installments, region }) {
+export default function SingleProduct({ image, title, seller, price, originalprice, shipping, installments, region, id, sendID }) {
 
+  // Función para dar formato número
   const currencyFormat = (num) => {
     return `$${num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
   };
 
+  // Función para dar formato porcentaje
   const percentCalcule = (price, originalprice) => {
     return (
       <span className='singleProduct_percent'>
@@ -15,17 +17,27 @@ export default function SingleProduct({ image, title, seller, price, originalpri
         % OFF
       </span>
     );
+  };
+
+  // Enviando ID Click
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(event.target.id);
+    const { id } = event.target.id;
+    sendID({ id });
 
   };
 
   return (
     <ListItem className='singleProduct'>
-      <div className='singleProduct__left'>
+      <div style={{ cursor: 'pointer' }} className='singleProduct__left'>
         <img alt={title} src={image} />
       </div>
       <div className='singleProduct__information'>
-        <div className='singleProduct__title'>
-          <h2>{title}</h2>
+        <div className='singleProduct__title' style={{ cursor: 'pointer' }}>
+          <h2 id={id} onClick={handleClick}>
+            {title}
+          </h2>
           <p>{seller}</p>
         </div>
         {originalprice ? (

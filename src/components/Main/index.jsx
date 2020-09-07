@@ -1,10 +1,13 @@
 import React from 'react';
 import ReelProduct from './ReelProduct';
+import Pagination from './FeetPagination';
+import './index.css';
 
-function Main({ selecteDate }) {
+function Main({ products, currentSelected, limit, pagingTotal }) {
   return (
     <div className='main'>
-      <ReelProduct selecteDate={selecteDate} />
+      <ReelProduct products={products} />
+      <Pagination currentSelected={currentSelected} limit={limit} paging={pagingTotal} />
     </div>
   );
 }
