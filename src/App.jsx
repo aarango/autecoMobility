@@ -23,7 +23,7 @@ function App() {
           />
           <Route
             exact
-            path='/:id?'
+            path='/item/:id?'
             component={ProductContainer}
           />
         </Switch>

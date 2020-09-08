@@ -6,7 +6,8 @@
     height: 200px;
     align-items: center;
     padding: 20px;
-    border-radius: 1px;
+    margin-inline-end: 20;
+    border-radius: 5px;
     border-bottom: 1px solid lightgrey;
     background-color: white;
 }
@@ -18,14 +19,12 @@
     flex: 2;
     padding: 20px;
 }
-
 .singleProduct_percent {
     color: #00a650;
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
 }
-
 .singleProduct__left > img{
     width: 100%;
     object-fit: cover;
@@ -54,3 +53,22 @@
     font-size: smaller;
     color: green;
 }
+@media screen and (max-width: 600px) {
+    h2.responsive {
+      font-size: 1rem;
+      font-weight: 600;
+      marker-end: none;
+    }
+    span.responsive {
+        font-size: 0.5rem;
+      }
+    span.responsive_price {
+        font-size: 0.8rem;
+    }  
+    s.responsive {
+        font-size: 0.1rem;
+     }
+  }
+
+
+

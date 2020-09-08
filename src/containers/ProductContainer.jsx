@@ -5,14 +5,16 @@ import {
 } from 'react-router-dom';
 import ProductViewer from '../components/Product';
 
+import config from '../enviroment/config';
+
 function ProductContainer() {
 
   const { id } = useParams();
   const [products, setProducts] = useState([]);
 
-  const API_URL = 'https://api.mercadolibre.com';
   const ID_SELECT = id;
-  const API_TOKEN = 'APP_USR-260721409686760-090719-cc11d3617254a5471d42a7f5c2004676-137761565';
+  const API_URL = config.URL;
+  const API_TOKEN = config.TOKEN;
 
   useEffect(() => {
     async function getProduct() {

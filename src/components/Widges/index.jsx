@@ -1,16 +1,17 @@
 import React from 'react';
+import './index.css';
 
 function Widges() {
   return (
-    <div style={{ height: 'auto' }}>
+    <div className='widges'>
       <iframe
         title='frame'
         src='https://www.auteco.com.co/'
-        width='340'
+        width='400'
         height='100%'
         style={{ border: 'none', overflow: 'hidden' }}
         scrolling='no'
-        frameBorder='0'
+        frameBorder='5'
         allow='encrypted-media'
       />
     </div>

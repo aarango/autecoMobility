@@ -1,13 +1,11 @@
 import React from 'react';
 import Widges from '../components/Widges';
-import Sidebar from '../components/SideBar';
-import MainContainer from '../containers/MainContainer';
+import CategoryContainer from '../containers/CategoryContainer';
 
 function Home() {
   return (
     <div style={{ display: 'flex', padding: '15px' }}>
-      <Sidebar />
-      <MainContainer />
+      <CategoryContainer />
       <Widges />
     </div>
   );

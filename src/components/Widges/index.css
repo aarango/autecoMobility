@@ -1,0 +1,12 @@
+.widges {
+    height: 68rem;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-top: 20px;
+    margin-inline-end: 20;
+}
+@media (max-width: 900px) {
+    .widges {
+      display: none;
+    }
+}

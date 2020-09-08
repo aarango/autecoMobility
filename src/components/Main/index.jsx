@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReelProduct from './ReelProduct';
 import Pagination from './FeetPagination';
 import './index.css';
