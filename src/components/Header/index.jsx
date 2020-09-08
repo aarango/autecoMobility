@@ -82,17 +82,17 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position='static'>
+      <AppBar style={{ background: '#fff' }} position='static'>
         <Toolbar>
           <Badge className={classes.logo}>
-            <img alt='logo' max-width='100%' src='https://3j1z6j2up0jr3r2zz2111ri2-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/auteco-mobility-logo.png' />
+            <img alt='logo' max-width='100%' src='https://3j1z6j2up0jr3r2zz2111ri2-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/auteco-prehome-logo.png ' />
           </Badge>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <form>
-              <InputBase
+              <InputBase 
                 placeholder='Busque sus articulos...'
                 onChange={handleOnChange}
                 value={input}
@@ -102,7 +102,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-              <button hidden={true} type='submit' onClick={sendSearch}>presioname</button>
+              <button hidden={true} type='submit' onClick={sendSearch}> - </button>
             </form>
           </div>
           <div className={classes.grow} />

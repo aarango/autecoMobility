@@ -47,11 +47,7 @@ function ProductDetail({ products = [] }) {
                       condition={products.condition}
                       quanty={products.initial_quantity - products.sold_quantity}
                       acceptsmercadopago={products.accepts_mercadopago}
-                      originalprice={products.original_price}
-                      baseprice={products.base_price}
-                      availablequantity={products.available_quantity}
                       warranty={products.warranty}
-                      shipping={products.shipping}
                     />
                   </Paper>
                 </Grid>

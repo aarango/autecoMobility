@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 
-function ProductResum({ condition, selleraddress, quanty, acceptsmercadopago, baseprice, availablequantity, warranty, shipping }) {
+function ProductResum({ condition, selleraddress, quanty, acceptsmercadopago, warranty }) {
 
   return (
     <>
@@ -44,7 +44,7 @@ function ProductResum({ condition, selleraddress, quanty, acceptsmercadopago, ba
         </small>
       </Typography>
       <Typography variant='body1' component='span'>
-        Unidades disponibles:
+        Medios de Pago:
         <br />
         <small>
           <li>

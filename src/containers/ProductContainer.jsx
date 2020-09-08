@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import {
   useParams,
@@ -6,19 +6,20 @@ import {
 import ProductViewer from '../components/Product';
 
 import config from '../enviroment/config';
+import { Context } from '../Context';
 
 function ProductContainer() {
 
   const { id } = useParams();
   const [products, setProducts] = useState([]);
+  const { token } = useContext(Context);
 
   const ID_SELECT = id;
   const API_URL = config.URL;
-  const API_TOKEN = config.TOKEN;
 
   useEffect(() => {
     async function getProduct() {
-      const res = await axios.get(`${API_URL}/items/${ID_SELECT}?access_token=${API_TOKEN}`);
+      const res = await axios.get(`${API_URL}/items/${ID_SELECT}?access_token=${token}`);
       console.log('singleProduct', res.data);
       setProducts(res.data);
     }
